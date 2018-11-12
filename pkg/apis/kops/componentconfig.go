@@ -430,6 +430,9 @@ type KubeControllerManagerConfig struct {
 	HorizontalPodAutoscalerUseRestClients *bool `json:"horizontalPodAutoscalerUseRestClients,omitempty" flag:"horizontal-pod-autoscaler-use-rest-clients"`
 	// FeatureGates is set of key=value pairs that describe feature gates for alpha/experimental features.
 	FeatureGates map[string]string `json:"featureGates,omitempty" flag:"feature-gates"`
+	// HorizontalPodAutoscalerTolerance set the tolerance before scaling will occur
+	// default is "0.1" or 10%.
+	HorizontalPodAutoscalerTolerance *float64 `json:"HorizontalPodAutoscalerTolerance,omitempty" flag:"horizontal-pod-autoscaler-tolerance"`
 }
 
 // CloudControllerManagerConfig is the configuration of the cloud controller
