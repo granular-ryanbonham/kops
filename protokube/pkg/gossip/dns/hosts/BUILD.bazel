@@ -14,3 +14,10 @@ go_test(
     embed = [":go_default_library"],
     deps = ["//pkg/diff:go_default_library"],
 )
+
+go_test(
+    name = "go_default_test",
+    srcs = ["hosts_test.go"],
+    embed = [":go_default_library"],
+    deps = ["//pkg/diff:go_default_library"],
+)

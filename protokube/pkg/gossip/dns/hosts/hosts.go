@@ -36,6 +36,8 @@ const GUARD_END = "# End host entries managed by kops"
 
 var hostsFileMutex sync.Mutex
 
+var hostsFileMutex sync.Mutex
+
 func UpdateHostsFileWithRecords(p string, addrToHosts map[string][]string) error {
 	// For safety / sanity, we avoid concurrent updates from one process
 	hostsFileMutex.Lock()
