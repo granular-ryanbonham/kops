@@ -128,7 +128,7 @@ func (r *RollingUpdateInstanceGroup) RollingUpdate(rollingUpdateData *RollingUpd
 	} else if rollingUpdateData.CloudOnly {
 		klog.V(3).Info("Not validating cluster as validation is turned off via the cloud-only flag.")
 	} else if featureflag.DrainAndValidateRollingUpdate.Enabled() {
-		if err = r.validateCluster(rollingUpdateData, cluster); err != nil {
+		if err = r.validateClusterWithDuration(rollingUpdateData, validationTimeout); err != nil {
 			if rollingUpdateData.FailOnValidate {
 				return err
 			}
